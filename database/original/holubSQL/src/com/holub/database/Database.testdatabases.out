@@ -1,0 +1,9 @@
+address
+addrId,	street,	city,	state,	zip
+0,	12 MyStreet,	Berkeley,	CA,	99998
+1,	34 Quarry Ln.,	Bedrock,	AZ,	00000
+name
+first,	last,	addrId
+Fred,	Flintstone,	1
+Wilma,	Flintstone,	1
+Allen,	Holub,	0

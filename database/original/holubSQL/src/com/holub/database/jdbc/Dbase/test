@@ -1,0 +1,6 @@
+test
+Entry,	Customer,	DOW,	Cups,	Type
+1,	John,	Mon,	1,	JustJoe
+2,	JS,	Mon,	1,	Cappuccino
+3,	Marie,	Mon,	2,	CaffeMocha
+4,	James,	Thu,	1,	Cappuccino

@@ -1,0 +1,92 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>me.dec7.study</groupId>
+	<artifactId>holub.database</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>holub.database</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<junit.version>4.12</junit.version>
+		<org.mockito.version>1.10.8</org.mockito.version>
+		<org.hamcrest.version>1.3</org.hamcrest.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<plugin.maven.war.version>2.4</plugin.maven.war.version>
+		<plugin.maven.eclipse.version>2.9</plugin.maven.eclipse.version>
+		<plugin.maven.compiler.version>3.1</plugin.maven.compiler.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- test -->
+		<!-- junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- mockito -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${org.mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- hamcrest -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>${org.hamcrest.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+	</dependencies>
+
+	<build>
+		<finalName>marker</finalName>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>**.*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<excludes>
+					<exclude>**.*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+		
+		
+
+		<plugins>
+			<!-- maven compiler -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${plugin.maven.compiler.version}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

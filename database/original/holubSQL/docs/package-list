@@ -1,0 +1,5 @@
+com.holub.database
+com.holub.database.jdbc
+com.holub.database.jdbc.adapters
+com.holub.text
+com.holub.tools

@@ -1,0 +1,16 @@
+set -v
+javac \
+/usr/src/com/holub/asynch/ConditionVariable.java \
+/usr/src/com/holub/io/Files.java \
+/usr/src/com/holub/text/*Token*.java  \
+/usr/src/com/holub/text/ParseFailure.java  \
+/usr/src/com/holub/text/Scanner.java \
+/usr/src/com/holub/tools/ArrayIterator.java \
+/usr/src/com/holub/tools/Publisher* \
+/usr/src/com/holub/tools/ThrowableContainer.java \
+/usr/src/com/holub/ui/Colors.java	 \
+/usr/src/com/holub/ui/MenuSite.java \
+/usr/src/com/holub/database/*.java \
+/usr/src/com/holub/database/jdbc/*.java \
+/usr/src/com/holub/database/jdbc/adapters/*.java \
+/usr/src/apps/com/holub/life/*.java

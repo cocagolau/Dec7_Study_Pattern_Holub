@@ -1,0 +1,124 @@
+people
+last	first	addrId	
+----------------------------------------
+Holub	Allen	1	
+Flintstone	Wilma	2	
+Flintstone	Fred	2	
+
+address
+addrId	street	city	state	zip	
+----------------------------------------
+1	123 MyStreet	Berkeley	CA	99999	
+2	123 Quarry Ln.	Bedrock 	XX	12345	
+3	Bogus	Bad	XX	12345	
+
+update set state='YY' where state='XX'
+1 123 MyStreet Berkeley CA 99999 
+2 123 Quarry Ln. Bedrock  YY 12345 
+3 Bogus Bad YY 12345 
+2 rows affected
+
+delete where street='Bogus'
+1 123 MyStreet Berkeley CA 99999 
+2 123 Quarry Ln. Bedrock  YY 12345 
+1 rows affected
+
+Wilma Flintstone 
+Fred Flintstone 
+Flintstone Wilma 2 
+Flintstone Fred 2 
+
+SELECT first,last,street,city,state,zip FROM people, address WHERE people.addrId = address.addrId
+Allen Holub 123 MyStreet Berkeley CA 99999 
+Wilma Flintstone 123 Quarry Ln. Bedrock  YY 12345 
+Fred Flintstone 123 Quarry Ln. Bedrock  YY 12345 
+
+
+SELECT first,last,street,city,state,zip,text FROM people, address, third WHERE (people.addrId = address.addrId) AND (people.addrId = third.addrId)
+<anonymous>
+last	first	state	text	
+----------------------------------------
+Holub	Allen	CA	addrId=1	
+Flintstone	Wilma	YY	addrId=2	
+Flintstone	Fred	YY	addrId=2	
+
+
+begin/insert into people (Solo, Han, 5)
+people
+last	first	addrId	
+----------------------------------------
+Holub	Allen	1	
+Flintstone	Wilma	2	
+Flintstone	Fred	2	
+Solo	Han	5	
+
+begin/insert into people (Lea, Princess, 6)
+people
+last	first	addrId	
+----------------------------------------
+Holub	Allen	1	
+Flintstone	Wilma	2	
+Flintstone	Fred	2	
+Solo	Han	5	
+Lea	Princess	6	
+
+commit(THIS_LEVEL)
+rollback(Table.THIS_LEVEL)
+
+people
+last	first	addrId	
+----------------------------------------
+Holub	Allen	1	
+Flintstone	Wilma	2	
+Flintstone	Fred	2	
+
+people
+last	first	addrId	
+----------------------------------------
+Holub	Allen	1	
+Flintstone	Wilma	2	
+Flintstone	Fred	2	
+
+begin/insert into people (Vader,Darth, 4)
+people
+last	first	addrId	
+----------------------------------------
+Holub	Allen	1	
+Flintstone	Wilma	2	
+Flintstone	Fred	2	
+Vader	Darth	4	
+
+begin/update people set last=Skywalker where last=Vader
+people
+last	first	addrId	
+----------------------------------------
+Holub	Allen	1	
+Flintstone	Wilma	2	
+Flintstone	Fred	2	
+Skywalker	Darth	4	
+
+delete from people where last=Skywalker
+people
+last	first	addrId	
+----------------------------------------
+Holub	Allen	1	
+Flintstone	Wilma	2	
+Flintstone	Fred	2	
+
+rollback(Table.THIS_LEVEL) the delete and update
+people
+last	first	addrId	
+----------------------------------------
+Holub	Allen	1	
+Flintstone	Wilma	2	
+Flintstone	Fred	2	
+Vader	Darth	4	
+
+rollback(Table.THIS_LEVEL) insert
+people
+last	first	addrId	
+----------------------------------------
+Holub	Allen	1	
+Flintstone	Wilma	2	
+Flintstone	Fred	2	
+
